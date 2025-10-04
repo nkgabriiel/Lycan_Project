@@ -1,6 +1,13 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start();
 
+if (session_status() === PHP_SESSION_NONE) {
+    ini_set('session.cookie.httponly', 1);
+    ini_set('session.use.strict.mode', 1);
+    if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') {
+        ini_set('session.cookie.secure', 1);
+    }
+    session_start();
+}
 define('DB_HOST', 'localhost');
 define('DB_NAME','sistema_auth');
 define('DB_USER',   'root');
@@ -19,16 +26,12 @@ function conectar_banco() {
 }
 }
 
-$options = [
-    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_EMULATE_PREPARES   => false,
-];
 
-    function redirecionar($url) {
-        header("Location: $url");
-        exit;
-    }
+
+   function redirecionar($url) {
+    header("Location: " . $url);
+    exit;
+}
 
     function sanitizar($string) {
         return htmlspecialchars($string ?? '', ENT_QUOTES, 'UTF-8');
@@ -50,13 +53,4 @@ $options = [
 
     $pdo = conectar_banco();
 
-if(session_status() === PHP_SESSION_NONE) {
-    
-    ini_set('session.cookie.httponly', 1);
-    ini_set('session.use.strict.mode', 1);
-    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on'){
-        ini_set('session.cookie.secure', 1);
-    }
-}
-ob_end_flush();
 ?>
