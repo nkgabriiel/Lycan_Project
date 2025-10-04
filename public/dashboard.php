@@ -1,9 +1,22 @@
 <?php
 $perfil_exigido = 'admin';
 
-require_once 'verifica_sessao.php';
+require_once __DIR__ . '/../public/verifica_sessao.php';
+require_once __DIR__ . '/../app/config.php';
 
-$usuario_exib = htmlspecialchars($_SESSION['usuario'], ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$usuario_exib = htmlspecialchars($_SESSION['usuario_nome'] ?? 'Admin', ENT_QUOTES, 'UTF-8');
+
+$lista_usuarios = [];
+
+if($_SESSION['perfil'] === 'admin') {
+    try {
+        $pdo=conectar_banco();
+        $stmt = $pdo->query('SELECT id, nome, email, perfil FROM usuarios ORDER BY nome ASC');
+        $lista_usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die("Erro ao buscar usuários: ". $e->getMessage());
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -12,51 +25,46 @@ $usuario_exib = htmlspecialchars($_SESSION['usuario'], ENT_QUOTES | ENT_SUBSTITU
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-     <style>
-        Body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(45deg, gray, black);
-        }
-        .HomePage{
-            background-color: rgba(0, 0, 0, 0.9);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 80px;
-            border-radius: 15px;
-            color: white;
-        }
-        input{
-            padding: 15px;
-            border: none;
-            outline: none;
-            font-size: 15px;
-        }
-        button{
-            background-color: blue;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 10px;
-            color: white;
-            font-size: 15px;
-        }
-        button:hover{
-            background-color: dodgerblue;
-        }
-    </style>
 </head>
 <body>
-    <div class="HomePage">
     <h1>Bem-vindo, <?= $usuario_exib ?></h1>
     
     <?php if (!empty($_SESSION['flash_sucesso'])): ?>
-        <div style="color:green"><?= htmlspecialchars($_SESSION['flash_sucesso'])?></div>
-        <?php unset($_SESSION['flash_sucesso']); ?>
-        <?php endif; ?>
-    
-        <p><a href="logout.php">Sair</a></p>
+
+        <div style="color:green">
+            <?= htmlspecialchars($_SESSION['flash_sucesso'])?>
         </div>
+
+        <?php unset($_SESSION['flash_sucesso']); ?>
+
+        <?php endif; ?>
+    <?php if ($_SESSION['perfil'] === 'admin'): ?>
+        <hr>
+        <h2>Gerenciamento de usuários</h2>
+
+        <form action="" method="POST">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>E-mail</th>
+                        <th>Perfil Atual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($lista_usuarios as $usuario): ?>
+                        <tr>
+                            <td><?= $usuario['id'] ?> </td>
+                            <td><?= htmlspecialchars($usuario['nome']) ?></td>
+                            <td><?= htmlspecialchars($usuario['email']) ?></td>
+                            <td><?= ucfirst($usuario['perfil']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </form>
+        <?php endif ?>
+        <p><a href="logout.php">Sair</a></p>
 </body>
 </html>

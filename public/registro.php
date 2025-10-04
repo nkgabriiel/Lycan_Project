@@ -1,51 +1,60 @@
 <?php
-require_once 'config.php';
 
-if(isset($_SESSION['usuario'])) redirecionar('dashboard.php');
+require_once __DIR__ . '/../app/config.php';
+
+if (isset($_SESSION['usuario'])) {
+   redirecionar('dashboard.php');
+}
 
 $erro = $_SESSION['flash_erro'] ?? '';
 $sucesso = $_SESSION['flash_sucesso'] ?? '';
 unset($_SESSION['flash_erro'], $_SESSION['flash_sucesso']);
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = trim($_POST['nome_completo'] ?? '');
+    $nome = trim($_POST['nome'] ?? '');
     $email = trim($_POST['email'] ?? '');
     $senha = $_POST ['senha'] ?? '';
     $confirma = $_POST['confirmar_senha'] ?? '';
 
     $_SESSION['form_data'] = [
-        'nome_completo' => $nome_completo,
+        'nome' => $nome,
         'email' => $email
     ];
-
 
     $erros = [];
 
     if(!$nome || !$email || !$senha || !$confirma) $erros[] = 'Todos os campos são obrigatórios';
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)) $erros[] = 'E-mail inválido.';
 
+    $validacao_senha = validarForcaSenha($senha);
+    if(!$validacao_senha['valida']) {
+        $erros =array_merge($erros, $validacao_senha['erros']);
+    }
     if(empty($erros)) {
         $pdo = conectar_banco();
-        $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email=: email LIMIT 1");
-        $stmt->execute([':email =>$email']);
+        $stmt = $pdo->prepare("SELECT id FROM usuarios WHERE email = :email LIMIT 1");
+        $stmt->execute([':email' =>$email]);
         if($stmt ->fetch()) $erros[] = 'E-mail já cadastrado';
     }
 
     if(empty($erros)) {
         $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
-        $stmt = $pdto->prepare ("INSERT INTO usuarios (email, senha_hash, nome_completo) VALUES (:email, :senha_hash, :nome");
-        if($stmt->execute['flash_sucesso'] = 'Cadastro realizado! Faça login.');
-        redirecionar('index.php');
+        $stmt = $pdo->prepare ("INSERT INTO usuarios (email, senha_hash, nome) VALUES (:email, :senha_hash, :nome)");
+        
+        $params = [
+        ':email' => $email,
+        ':senha_hash' => $senha_hash,
+        ':nome' => $nome
+    ];
+        if($stmt->execute($params)) {
+            $_SESSION['flash_sucesso'] = 'Cadastro Realizado, faça login!';
+            redirecionar('index.php');
+        }
     }else {
         $erros[] = 'Erro ao criar conta.';
     }
     if(!empty($erros)) $_SESSION['flash_erro'] = implode('<br>',$erros);
     redirecionar('registro.php');
-
-    $validacao_senha = validarForcaSenha($senha);
-    if(!$validacao_senha['valida']) {
-        $erros =array_merge($erros, $validacao_senha['erros']);
-    }
     
 }
 ?>
@@ -62,10 +71,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php if($sucesso) echo "<p style='color:green'>".sanitizar($sucesso)."</p>"; ?>
 
 <form method="POST" action="registro.php">
-<label>Nome: <input type="text" name="nome_completo"></label><br>
-<label>E-mail: <input type="email" name="email"></label><br>
-<label>Senha: <input type="password" name="senha"></label><br>
-<label>Confirmar Senha: <input type="password" name="confirmar_senha"></label><br>
+<label>Nome: <input type="text" name="nome"></label><br><br>
+<label>E-mail: <input type="email" name="email"></label><br><br>
+<label>Senha: <input type="password" name="senha"></label><br><br>
+<label>Confirmar Senha: <input type="password" name="confirmar_senha"></label><br><br>
 <button type="submit">Criar Conta</button>
 </form>
 

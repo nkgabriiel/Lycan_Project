@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once __DIR__ . '/../app/config.php';
 
 $erro = $_SESSION['flash_erro'] ?? '';
 $sucesso = $_SESSION['flash_sucesso'] ?? '';
@@ -11,43 +11,8 @@ unset($_SESSION['flash_erro'], $_SESSION['flash_sucesso']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        Body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-image: linear-gradient(45deg, gray, black);
-        }
-        .tela-login{
-            background-color: rgba(0, 0, 0, 0.9);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 80px;
-            border-radius: 15px;
-            color: white;
-        }
-        input{
-            padding: 15px;
-            border: none;
-            outline: none;
-            font-size: 15px;
-        }
-        button{
-            background-color: blue;
-            border: none;
-            padding: 15px;
-            width: 100%;
-            border-radius: 10px;
-            color: white;
-            font-size: 15px;
-        }
-        button:hover{
-            background-color: dodgerblue;
-        }
-    </style>
 </head>
 <body>
-    <div class="tela-login">
     <h1>Login</h1>
 
     <?php if($erro) : ?>
@@ -66,7 +31,11 @@ unset($_SESSION['flash_erro'], $_SESSION['flash_sucesso']);
     <input type="password" name="senha" id="senha" required><br><br>
 
     <button type="submit">Entrar</button>
-    </div>
+
+    <p>Ainda não tem conta?</p>
+<a href="registro.php">
+    <button type="button">Registre-se</button>
+</a>
 </form>
 </body>
 </html>

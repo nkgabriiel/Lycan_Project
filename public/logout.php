@@ -1,5 +1,5 @@
 <?php
-require_once 'config.php';
+require_once __DIR__ . '/../app/config.php';
 
 $_SESSION = [];
 session_unset();
@@ -13,6 +13,6 @@ if(ini_get('session.use_cookies')) {
 
 session_start();
 $_SESSION['flash_sucesso'] = 'Você saiu com sucesso';
-header('Location: index.php');
+redirecionar('index.php');
 exit;
 ?>
