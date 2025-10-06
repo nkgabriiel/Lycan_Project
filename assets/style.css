@@ -1,0 +1,108 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(45deg, gray, black);
+}
+input{
+    padding: 13px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    border-radius: 10px;
+}
+form label{
+    display: grid;
+    gap: 10px;
+}
+
+.tela-login{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    border-radius: 15px;
+    color: white;
+}
+.btn-registro{
+background-color: dodgerblue;
+border: none;
+padding: 15px;
+width: 100%;
+border-radius: 10px;
+color: white;
+font-size: 15px;
+}
+.btn-registro:hover{
+    background-color: deepskyblue;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+}
+.btn-entrar:hover{
+    cursor: pointer;
+}
+.tela-cadastro{
+   background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 100px;
+    border-radius: 15px;
+    color: white; 
+}
+.btn-criarconta{
+    cursor: pointer;
+}
+.btn-login{
+    color: dodgerblue;
+}
+.btn-login:hover{
+    color: deepskyblue;
+    letter-spacing: 0.1rem;
+}
+.tela-inicialadmin{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 100px;
+    border-radius: 15px;
+    color: white; 
+}
+.tela-inicialadmin table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.tela-inicialadmin th, 
+.tela-inicialadmin td {
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
+}
+.btn-sairadmin{
+    color: dodgerblue;
+}
+.btn-sairadmin:hover{
+    color: deepskyblue;
+    letter-spacing: 0.1rem;
+}
+.tela-inicialcliente{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 100px;
+    border-radius: 15px;
+    color: white; 
+}
+.btn-saircliente{
+    color: dodgerblue;
+}
+.btn-saircliente:hover{
+    color: deepskyblue;
+    letter-spacing: 0.1rem;
+}

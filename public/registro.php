@@ -64,8 +64,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
 <meta charset="UTF-8">
 <title>Cadastro</title>
+<link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
+    <div class="tela-cadastro">
 <h2>Cadastro</h2>
 <?php if($erro) echo "<p style='color:red'>$erro</p>"; ?>
 <?php if($sucesso) echo "<p style='color:green'>".sanitizar($sucesso)."</p>"; ?>
@@ -75,9 +77,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
 <label>E-mail: <input type="email" name="email"></label><br><br>
 <label>Senha: <input type="password" name="senha"></label><br><br>
 <label>Confirmar Senha: <input type="password" name="confirmar_senha"></label><br><br>
-<button type="submit">Criar Conta</button>
+<button type="submit", class="btn-criarconta">Criar Conta</button>
 </form>
 
-<p>Já tem conta? <a href="index.php">Login</a></p>
+<p>Já tem conta? <a href="index.php", class="btn-login">Login</a></p>
+</div>
 </body>
 </html>
