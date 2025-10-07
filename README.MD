@@ -1,5 +1,4 @@
-# Projetoistema de Autenticação em PHP
-Este projeto é um sistema de autenticação de usuários seguro e funcional, desenvolvido em PHP. Ele permite o controle de acesso a páginas restritas com base em perfis de usuário (admin/user), redirecionando cada um para sua respectiva área.
+# Projeto Lycan
 
 # Funcionalidades Principais
 * **RF1 (Cadastro):** Usuários podem criar uma nova conta com nome, e-mail e senha.
