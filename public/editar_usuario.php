@@ -24,7 +24,7 @@ if(!$usuario) {
 <html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/../assets/style.css">
+        <link rel="stylesheet" href="../assets/style.css">
         <title>Editar Usuário</title>
     </head>
     <body>
@@ -47,9 +47,8 @@ if(!$usuario) {
             </select> <br><br>
 
             <button type="submit">Atualizar Usuário</button>
-            <a href="dashboard.php" class="btn-cancelareditar">Cancelar</a>
+            <a href="dashboard.php", class="btn-cancelar">Cancelar</a>
             </div>
         </form>
     </body>
 </html>
-

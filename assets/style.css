@@ -24,42 +24,25 @@ form label{
     border-radius: 15px;
     color: white;
 }
-.btn-registro{
-background-color: dodgerblue;
-border: none;
-padding: 15px;
-width: 100%;
-border-radius: 10px;
-color: white;
-font-size: 15px;
-}
-.btn-registro:hover{
-    background-color: deepskyblue;
-    cursor: pointer;
-    letter-spacing: 0.1rem;
-}
-.btn-entrar:hover{
-    cursor: pointer;
-}
-.tela-cadastro{
-   background-color: rgba(0, 0, 0, 0.9);
+.tela-editar{
+    background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 100px;
+    padding: 80px;
     border-radius: 15px;
-    color: white; 
+    color: white;
 }
-.btn-criarconta{
-    cursor: pointer;
-}
-.btn-login{
-    color: dodgerblue;
-}
-.btn-login:hover{
-    color: deepskyblue;
-    letter-spacing: 0.1rem;
+.tela-adicionar{
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px;
+    border-radius: 15px;
+    color: white;
 }
 .tela-inicialadmin{
     background-color: rgba(0, 0, 0, 0.9);
@@ -82,13 +65,6 @@ font-size: 15px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 }
-.btn-sairadmin{
-    color: dodgerblue;
-}
-.btn-sairadmin:hover{
-    color: deepskyblue;
-    letter-spacing: 0.1rem;
-}
 .tela-inicialcliente{
     background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
@@ -99,6 +75,61 @@ font-size: 15px;
     border-radius: 15px;
     color: white; 
 }
+.tela-cadastro{
+   background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 100px;
+    border-radius: 15px;
+    color: white; 
+}
+.btn-registro{
+background-color: dodgerblue;
+border: none;
+padding: 15px;
+width: 100%;
+border-radius: 10px;
+color: white;
+font-size: 15px;
+}
+.btn-registro:hover{
+    background-color: deepskyblue;
+    cursor: pointer;
+    letter-spacing: 0.1rem;
+}
+.btn-entrar{
+    color: dodgerblue;
+    background: none;
+    cursor: pointer;
+    border: none;
+    text-decoration: underline;
+}
+.btn-entrar:hover{
+    cursor: pointer;
+    color: deepskyblue;
+    letter-spacing: 0.1rem;
+}
+.btn-criarconta{
+    cursor: pointer;
+}
+.btn-login{
+    color: dodgerblue;
+}
+.btn-login:hover{
+    color: deepskyblue;
+    letter-spacing: 0.1rem;
+}
+
+.btn-sairadmin{
+    color: dodgerblue;
+}
+.btn-sairadmin:hover{
+    color: deepskyblue;
+    letter-spacing: 0.1rem;
+}
+
 .btn-saircliente{
     color: dodgerblue;
 }
@@ -106,39 +137,33 @@ font-size: 15px;
     color: deepskyblue;
     letter-spacing: 0.1rem;
 }
-
-.tela-editar{
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 80px;
-    border-radius: 15px;
-    color: white;
+.btn-cancelar{
+    color: red;
 }
-.tela-adicionar{
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 80px;
-    border-radius: 15px;
-    color: white;
+.btn-cancelar:hover{
+    color: darkred;
 }
-
-.btn-cancelaradicionar{
+.btn-deletar{
+    color: red;
+    background: none;
+    cursor: pointer;
+    border: none;
+    text-decoration: underline;
+}
+.btn-deletar:hover{
+    color: darkred;
+}
+.btn-editar{
     color: dodgerblue;
 }
-.btn-cancelaradicionar:hover{
+.btn-editar:hover{
     color: deepskyblue;
-    letter-spacing: 0.1rem;
+
 }
-.btn-cancelareditar{
+.btn-criarusuario{
     color: dodgerblue;
 }
-.btn-cancelareditar:hover{
+.btn-criarusuario:hover{
     color: deepskyblue;
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.05rem;
 }

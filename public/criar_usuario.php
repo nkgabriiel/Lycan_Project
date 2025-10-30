@@ -31,9 +31,8 @@ require_once __DIR__ . '/../app/verifica_sessao.php';
         </select> <br><br>
 
         <button type="submit">Salvar usuário</button>
-        <a href="dashboard.php" class="btn-cancelaradicionar">Cancelar</a>
+        <a href="dashboard.php", class="btn-cancelar">Cancelar</a>
     </form>
     </div>
 </body>
 </html>
-

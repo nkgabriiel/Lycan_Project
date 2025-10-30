@@ -31,12 +31,12 @@ if($_SESSION['perfil'] === 'admin') {
 <body>
     <div class="tela-inicialadmin">
     <h1>Bem-vindo, <?= $usuario_exib ?></h1>
-    <a href="../app/logout.php">Sair</a> <hr>
+    <a href="../app/logout.php", class="btn-cancelar">Sair</a> <hr>
 
     <h2>Gerenciamento de usuários</h2>
 
-    <a href="criar_usuario.php">
-        + Adicionar Novo Uusário
+    <a href="criar_usuario.php", class="btn-criarusuario">
+        + Adicionar Novo Usuário
     </a>
 
     
@@ -68,11 +68,11 @@ if($_SESSION['perfil'] === 'admin') {
                             <td><?= htmlspecialchars($usuario['email']) ?></td>
                             <td><?= ucfirst($usuario['perfil']) ?></td>
                             <td>
-                                <a href="editar_usuario.php?id=<?= $usuario['id'] ?>">Editar</a>
+                                <a href="editar_usuario.php?id=<?= $usuario['id'] ?>", class="btn-editar" >Editar</a>
                                 <?php if($usuario['id'] !== $admin_id_logado): ?>
                                     <form action="../app/deletar_usuario.php" method="POST" style="display:inline" onsubmit="return confirm('Tem certeza?');"> 
                                         <input type="hidden" name="usuario_id" value="<?= $usuario['id']?>">
-                                        <button type="submit" style="color:red; background:none; border:none; cursor:pointer;">
+                                        <button type="submit", class="btn-deletar">
                                         Deletar
                                         </button>
                                     </form>

@@ -9,7 +9,15 @@
 
 * **RF4 (Proteção de Páginas):** Um script "guard" (verifica_sessao.php) protege o acesso a páginas restritas.
 
-* **RF5 (Gerenciamento de Admin):** No dashboard, o administrador pode visualizar todos os usuários e alterar suas permissões.
+* **RF5 (CRUD de Usuários - Admin):** O administrador possui um painel de gerenciamento com controle total (Criar, Ler, Atualizar, Deletar) sobre os usuários do sistema.
+
+* **Create:** Adicionar novos usuários manualmente (incluindo outros admins) através de um formulário.
+
+* **Read:** Visualizar a lista completa de usuários registrados no dashboard.
+
+* **Update:** Editar nome, e-mail e nível de permissão (perfil) de usuários existentes.
+
+* **Delete:** Remover usuários do sistema (com proteção para que o admin não possa deletar a si mesmo).
 
 * **RF6 (Logout):** Encerramento seguro da sessão do usuário.
 
