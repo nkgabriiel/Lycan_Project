@@ -22,7 +22,6 @@ if(!$usuario) {
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-<<<<<<< HEAD
         <meta charset="UTF-8";
         <title>Editar Usuário</title>
     </head>
@@ -30,19 +29,6 @@ if(!$usuario) {
         <h2>Editar Usuário: <?= htmlspecialchars($usuario['nome'])?></h2>
         <form action="../app/atualizar_usuario.php" method="POST">
 
-=======
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="../assets/style.css">
-        <title>Editar Usuário</title>
-    </head>
-    <body>
-        <div class="tela-editar">
-        <h2>Editar Usuário: <?= htmlspecialchars($usuario['nome'])?></h2>
-        <form action="../app/atualizar_usuario.php" method="POST">
-
-            <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
-
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
             <label>Nome:</label><br>
             <input type="text" name="nome" value="<?= htmlspecialchars($usuario['nome']) ?>" required> <br><br>
 
@@ -55,18 +41,9 @@ if(!$usuario) {
                 <option value="admin" <?= ($usuario['perfil'] == 'admin') ? 'selected' : ''  ?> >Admin</option>
             </select> <br><br>
 
-<<<<<<< HEAD
             <button type="submit">Atualziar Usuário</button>
             <a href="dashboard.php">Cancelar</a>
         </form>
     </body>
 </html>
 
-=======
-            <button type="submit">Atualizar Usuário</button>
-            <a href="dashboard.php", class="btn-cancelar">Cancelar</a>
-            </div>
-        </form>
-    </body>
-</html>
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
