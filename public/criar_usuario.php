@@ -1,12 +1,7 @@
 <?php
 $perfil_exigido = 'admin';
-<<<<<<< HEAD
 require_once __DIR__ . '/../app/verifica_sessao.php';
 require_once __DIR__ . '/../app/config.php';
-=======
-require_once __DIR__ . '/../app/config.php';
-require_once __DIR__ . '/../app/verifica_sessao.php';
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 ?>
 
 <!DOCTYPE html>
