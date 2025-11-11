@@ -1,17 +1,9 @@
 <?php
 $perfil_exigido = 'admin';
-<<<<<<< HEAD
 require_once __DIR__ . '/../app/verifica_sessao.php';
 require_once __DIR__ . '/../app/config.php';
 
 $usuario_id = $_GET['ID'] ?? 0;
-=======
-
-require_once __DIR__ . '/../app/config.php';
-require_once __DIR__ . '/../app/verifica_sessao.php';
-
-$usuario_id = $_GET['id'] ?? 0;
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 if(empty($usuario_id)) {
     redirecionar('../public/dashboard.php');
 }

@@ -9,19 +9,7 @@
 
 * **RF4 (Proteção de Páginas):** Um script "guard" (verifica_sessao.php) protege o acesso a páginas restritas.
 
-<<<<<<< HEAD
 * **RF5 (Gerenciamento de Admin):** No dashboard, o administrador pode visualizar todos os usuários e alterar suas permissões.
-=======
-* **RF5 (CRUD de Usuários - Admin):** O administrador possui um painel de gerenciamento com controle total (Criar, Ler, Atualizar, Deletar) sobre os usuários do sistema.
-
-* **Create:** Adicionar novos usuários manualmente (incluindo outros admins) através de um formulário.
-
-* **Read:** Visualizar a lista completa de usuários registrados no dashboard.
-
-* **Update:** Editar nome, e-mail e nível de permissão (perfil) de usuários existentes.
-
-* **Delete:** Remover usuários do sistema (com proteção para que o admin não possa deletar a si mesmo).
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 
 * **RF6 (Logout):** Encerramento seguro da sessão do usuário.
 
@@ -74,8 +62,4 @@ Linguagem: PHP com estrutura de pastas separando lógica (app/) e arquivos públ
 
 6 - Todas as páginas restritas incluem app/verifica_sessao.php para garantir que apenas usuários logados possam acessá-las, com verificação adicional de perfil quando necessário.
 
-<<<<<<< HEAD
 7 - O link "Sair" aponta para app/logout.php, que destrói a sessão e redireciona o usuário para a página de login.
-=======
-7 - O link "Sair" aponta para app/logout.php, que destrói a sessão e redireciona o usuário para a página de login.
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
