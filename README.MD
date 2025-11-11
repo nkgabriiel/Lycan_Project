@@ -26,7 +26,7 @@ Linguagem: PHP com estrutura de pastas separando lógica (app/) e arquivos públ
 # Pré-requisitos
 -- Servidor web local (XAMPP, WampServer, etc.).
 
--- PHP (versão 7.3 ou superior).
+-- PHP (versão 7.4 ou superior).
 
 -- Servidor de banco de dados MySQL ou MariaDB.
 
