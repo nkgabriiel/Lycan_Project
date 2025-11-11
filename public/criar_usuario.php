@@ -1,16 +1,29 @@
 <?php
 $perfil_exigido = 'admin';
+<<<<<<< HEAD
 require_once __DIR__ . '/../app/verifica_sessao.php';
 require_once __DIR__ . '/../app/config.php';
+=======
+require_once __DIR__ . '/../app/config.php';
+require_once __DIR__ . '/../app/verifica_sessao.php';
+>>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 ?>
 
 <!DOCTYPE html>
 <html lang = "pt-BR">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Adicionar usuário</title>
 </head>
 <body>
+=======
+    <link rel="stylesheet" href="../assets/style.css">
+    <title>Adicionar usuário</title>
+</head>
+<body>
+    <div class="tela-adicionar">
+>>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
     <h2>Adicionar Novo usuário</h2>
     <form action="../app/salvar_usuario.php" method="POST">
         <label>Nome:</label><br>
@@ -29,8 +42,16 @@ require_once __DIR__ . '/../app/config.php';
         </select> <br><br>
 
         <button type="submit">Salvar usuário</button>
+<<<<<<< HEAD
         <a href="dashboard.php">Cancelar</a>
     </form>
 </body>
 </html>
 
+=======
+        <a href="dashboard.php", class="btn-cancelar">Cancelar</a>
+    </form>
+    </div>
+</body>
+</html>
+>>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471

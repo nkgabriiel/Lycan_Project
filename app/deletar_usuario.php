@@ -12,7 +12,11 @@ $admin_id_logado = $_SESSION['usuario_id'];
 
 if($id_delete == $admin_id_logado) {
     $_SESSION['flash_erro'] = 'Você não pode deletar a sua própria conta!';
+<<<<<<< HEAD
     redirecionar('../public/dashboard');
+=======
+    redirecionar('../public/dashboard.php');
+>>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 }
 
 try {
@@ -25,5 +29,9 @@ try {
     $_SESSION['flash_erro'] = 'Erro ao deletar usuário.';
 }
 
+<<<<<<< HEAD
 redirecionar('../public/dashboard');
+=======
+redirecionar('../public/dashboard.php');
+>>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 ?>
