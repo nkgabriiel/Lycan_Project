@@ -13,6 +13,6 @@ if(ini_get('session.use_cookies')) {
 
 session_start();
 $_SESSION['flash_sucesso'] = 'Você saiu com sucesso';
-redirecionar('/Projeto/public/index.php');
+redirecionar('/../public/index.php');
 exit;
 ?>

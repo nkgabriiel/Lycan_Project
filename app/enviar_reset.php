@@ -21,11 +21,11 @@ $token_hash = hash('sha256', $token);
 $expira_em = date('Y-m-d H:i:s',strtotime('+1 hour'));
 
 $stmt_insert = $pdo->prepare('INSERT INTO password_reset (usuario_id, token_hash, expira_em) VALUES (?, ?, ?)');
-$stmt_insert->execute([$usuario['id'], $token, $expira_em]);
+$stmt_insert->execute([$usuario['id'], $token_hash, $expira_em]);
 
-$link = BASE_URL . '/public/resetar_senha.php' . $token;
+$link = BASE_URL . '/public/resetar_senha.php?token=' . $token;
 
-echo 'link de reset (copie e cole no navegador)' . $link;
+echo 'link de reset (copie e cole no navegador): ' . $link;
 exit;
 
 }

@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/../app/config.php';
 
-$tokenURL = $_GET['token'];
+$tokenURL = $_GET['token'] ?? '';
 
 if(empty($tokenURL)) {
-    redirecionar('index.php');
+    redirecionar('/public/index.php');
 }
 
 $token_hash = hash('sha256', $tokenURL);
@@ -18,7 +18,7 @@ $reset_request = $stmt->fetch();
 
 if(!$reset_request) {
     $_SESSION['flash_erro'] = 'Link de reformulação inválido ou expirado.';
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
 }
 
 ?>
@@ -33,7 +33,7 @@ if(!$reset_request) {
 <body>
     <form action="../app/salvar_nova_senha.php" method="POST">
 
-    <input type="hidden" name="token" value="<?=htmlspecialchars($tokenURL)?>"
+    <input type="hidden" name="token" value="<?=htmlspecialchars($tokenURL)?>">
 
         <label for="novaSenha">Insira sua nova senha: </label> <br>
         <input type="password" name="novaSenha" required> <br><br>
