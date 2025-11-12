@@ -20,12 +20,16 @@ $token_hash = hash('sha256', $token);
 
 $expira_em = date('Y-m-d H:i:s',strtotime('+1 hour'));
 
-$stmt = $pdo->prepare('INSERT INTO password_reset (usuario_id, token_hash, expira_em) VALUES (?, ?, ?)')
+$stmt_insert = $pdo->prepare('INSERT INTO password_reset (usuario_id, token_hash, expira_em) VALUES (?, ?, ?)');
+$stmt_insert->execute([$usuario['id'], $token, $expira_em]);
 
+$link = BASE_URL . '/public/resetar_senha.php' . $token;
 
-
+echo 'link de reset (copie e cole no navegador)' . $link;
+exit;
 
 }
 
-
+$_SESSION['flash_sucesso'] = 'Caso exista uma conta correspondente ao email escrito, um link de recuperação de senha será enviado.';
+   redirecionar('../public/index.php');
 ?>

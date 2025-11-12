@@ -1,0 +1,47 @@
+<?php
+require_once __DIR__ . '/../app/config.php';
+
+$tokenURL = $_GET['token'];
+
+if(empty($tokenURL)) {
+    redirecionar('index.php');
+}
+
+$token_hash = hash('sha256', $tokenURL);
+
+$pdo = conectar_banco();
+$sql = 'SELECT * FROM password_reset WHERE token_hash = ? AND expira_em > NOW()';
+$stmt = $pdo->prepare($sql);
+$stmt->execute([$token_hash]);
+
+$reset_request = $stmt->fetch();
+
+if(!$reset_request) {
+    $_SESSION['flash_erro'] = 'Link de reformulação inválido ou expirado.';
+    redirecionar('../public/index.php');
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trocar Senha</title>
+</head>
+<body>
+    <form action="../app/salvar_nova_senha.php" method="POST">
+
+    <input type="hidden" name="token" value="<?=htmlspecialchars($tokenURL)?>"
+
+        <label for="novaSenha">Insira sua nova senha: </label> <br>
+        <input type="password" name="novaSenha" required> <br><br>
+
+        <label for="confirmarNovaSenha">Confirme sua senha: </label> <br>
+        <input type="password" name="confirmarNovaSenha" required> <br><br>
+
+        <button type="submit" name="enviar">Enviar</button>
+    </form>
+</body>
+</html>
