@@ -34,6 +34,10 @@ unset($_SESSION['flash_erro'], $_SESSION['flash_sucesso']);
 
     <button type="submit", class="btn-entrar">Entrar</button>
 
+
+    <a href="esqueci_senha.php">
+     <p>Esqueceu sua senha?</p>
+    </a>
     <p>Ainda não tem conta?</p>
 <a href="registro.php">   
    <button type="button", class="btn-registro">Registre-se</button>
