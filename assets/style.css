@@ -24,7 +24,6 @@ form label{
     border-radius: 15px;
     color: white;
 }
-<<<<<<< HEAD
 .btn-registro{
 background-color: dodgerblue;
 border: none;
@@ -44,15 +43,10 @@ font-size: 15px;
 }
 .tela-cadastro{
    background-color: rgba(0, 0, 0, 0.9);
-=======
-.tela-editar{
-    background-color: rgba(0, 0, 0, 0.9);
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-<<<<<<< HEAD
     padding: 100px;
     border-radius: 15px;
     color: white; 
@@ -66,21 +60,6 @@ font-size: 15px;
 .btn-login:hover{
     color: deepskyblue;
     letter-spacing: 0.1rem;
-=======
-    padding: 80px;
-    border-radius: 15px;
-    color: white;
-}
-.tela-adicionar{
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 80px;
-    border-radius: 15px;
-    color: white;
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 }
 .tela-inicialadmin{
     background-color: rgba(0, 0, 0, 0.9);
@@ -103,7 +82,6 @@ font-size: 15px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2); 
 }
-<<<<<<< HEAD
 .btn-sairadmin{
     color: dodgerblue;
 }
@@ -111,8 +89,6 @@ font-size: 15px;
     color: deepskyblue;
     letter-spacing: 0.1rem;
 }
-=======
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 .tela-inicialcliente{
     background-color: rgba(0, 0, 0, 0.9);
     position: absolute;
@@ -123,101 +99,10 @@ font-size: 15px;
     border-radius: 15px;
     color: white; 
 }
-<<<<<<< HEAD
-=======
-.tela-cadastro{
-   background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 100px;
-    border-radius: 15px;
-    color: white; 
-}
-.btn-registro{
-background-color: dodgerblue;
-border: none;
-padding: 15px;
-width: 100%;
-border-radius: 10px;
-color: white;
-font-size: 15px;
-}
-.btn-registro:hover{
-    background-color: deepskyblue;
-    cursor: pointer;
-    letter-spacing: 0.1rem;
-}
-.btn-entrar{
-    color: dodgerblue;
-    background: none;
-    cursor: pointer;
-    border: none;
-    text-decoration: underline;
-}
-.btn-entrar:hover{
-    cursor: pointer;
-    color: deepskyblue;
-    letter-spacing: 0.1rem;
-}
-.btn-criarconta{
-    cursor: pointer;
-}
-.btn-login{
-    color: dodgerblue;
-}
-.btn-login:hover{
-    color: deepskyblue;
-    letter-spacing: 0.1rem;
-}
-
-.btn-sairadmin{
-    color: dodgerblue;
-}
-.btn-sairadmin:hover{
-    color: deepskyblue;
-    letter-spacing: 0.1rem;
-}
-
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 .btn-saircliente{
     color: dodgerblue;
 }
 .btn-saircliente:hover{
     color: deepskyblue;
     letter-spacing: 0.1rem;
-<<<<<<< HEAD
-=======
-}
-.btn-cancelar{
-    color: red;
-}
-.btn-cancelar:hover{
-    color: darkred;
-}
-.btn-deletar{
-    color: red;
-    background: none;
-    cursor: pointer;
-    border: none;
-    text-decoration: underline;
-}
-.btn-deletar:hover{
-    color: darkred;
-}
-.btn-editar{
-    color: dodgerblue;
-}
-.btn-editar:hover{
-    color: deepskyblue;
-
-}
-.btn-criarusuario{
-    color: dodgerblue;
-}
-.btn-criarusuario:hover{
-    color: deepskyblue;
-    letter-spacing: 0.05rem;
->>>>>>> 1c54e78bfd508d4a82c4db8c4c61057e55f93471
 }
