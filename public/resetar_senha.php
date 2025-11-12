@@ -35,11 +35,11 @@ if(!$reset_request) {
 
     <input type="hidden" name="token" value="<?=htmlspecialchars($tokenURL)?>">
 
-        <label for="novaSenha">Insira sua nova senha: </label> <br>
-        <input type="password" name="novaSenha" required> <br><br>
+        <label for="senha">Insira sua nova senha: </label> <br>
+        <input type="password" name="senha" required> <br><br>
 
-        <label for="confirmarNovaSenha">Confirme sua senha: </label> <br>
-        <input type="password" name="confirmarNovaSenha" required> <br><br>
+        <label for="confirmarSenha">Confirme sua senha: </label> <br>
+        <input type="password" name="confirmarSenha" required> <br><br>
 
         <button type="submit" name="enviar">Enviar</button>
     </form>

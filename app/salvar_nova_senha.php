@@ -2,27 +2,27 @@
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
 }
 
-$novaSenha = $_POST['novaSenha'];
-$confirmarNovaSenha = $_POST['confirmarNovaSenha'];
-$tokenURL = $_POST['token'];
+$novaSenha = $_POST['senha'] ?? '';
+$confirmarNovaSenha = $_POST['confirmarSenha'] ?? '';
+$tokenURL = $_POST['token'] ?? '';
 
-if(empty($token)) {
+if(empty($tokenURL)) {
     redirecionar('../public/index.php');
 }
 
 if(empty($novaSenha) || $novaSenha !== $confirmarNovaSenha) {
     $_SESSION['flash_erro'] = 'As senhas não coincidem ou há alguma informação faltando';
-    redirecionar('resetar_senha.php');
+    redirecionar('/public/resetar_senha.php?token=' . urlencode($tokenURL));
 }
 
 $validacao_senha = validarForcaSenha($novaSenha);
 
 if(!$validacao_senha['valida']) {
     $_SESSION['flash_erro'] = 'Sua senha não é forte o suficiente: ' . implode(', ', $validacao_senha['erros']);
-    redirecionar('../public/resetar_senha.php?token= ' . urlencode($tokenURL));
+    redirecionar('/public/resetar_senha.php?token=' . urlencode($tokenURL));
 }
 
 $token_hash = hash('sha256', $tokenURL);
@@ -37,7 +37,7 @@ $reset_request = $stmt->fetch();
 
 if(!$reset_request) {
     $_SESSION['flash_erro'] = 'Link de redefinição inválido ou expirado. Tente novamente.';
-    redirecionar('../public/resetar_senha.php');
+    redirecionar('/public/index.php');
 }
 
 try {
@@ -55,7 +55,7 @@ try {
     $pdo ->commit();
 
     $_SESSION['flash_sucesso'] = 'Sua senha foi alterada com sucesso! Faça login';
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
 
 } catch (PDOException $e) {
     if($pdo->inTransaction()) {
@@ -63,6 +63,6 @@ try {
     }
 
     $_SESSION['flash_erro'] = 'Ocorreu um erro ao atualizar sua senha. Tente novamente.';
-        redirecionar('../public/resetar_senha.php?token= ' . urlencode($tokenURL));
+        redirecionar('/public/resetar_senha.php?token=' . urlencode($tokenURL));
 
 }
