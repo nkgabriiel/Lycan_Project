@@ -9,12 +9,12 @@ if($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $nome = trim($_POST["nome"] ?? '');
 $email = trim($_POST['email'] ??'');
-$senha = trim($_POST[''] ??'');
+$senha = trim($_POST['senha'] ??'');
 $perfil = $_POST['perfil'] ?? 'user';
 
 if (empty($nome) || empty($email) || empty($senha)) {
    $_SESSION['flash_erro'] = 'Nome, e-mail e senha são obrigatórios!';
-   redirecionar("../public/criar_usuario");
+   redirecionar("../public/criar_usuario.php");
 }
 
 if (!in_array($perfil, ['user', 'admin'])) {
@@ -27,7 +27,7 @@ $stmt = $pdo->prepare('SELECT id FROM usuarios WHERE email = ?');
 $stmt->execute([$email]);
 if($stmt->fetch()) {
     $_SESSION['flash_erro'] = 'Este email já está cadastrado!';
-    redirecionar('../public/criar_usuario');
+    redirecionar('../public/criar_usuario.php');
 }
 
 $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
@@ -39,4 +39,3 @@ if ($stmt->execute([$nome, $email, $senha_hash, $perfil])) {
     $_SESSION['flash_erro'] = 'Falha ao criar usuário.';
 }
 redirecionar('../public/dashboard.php');
-?>
