@@ -2,7 +2,7 @@
 require_once __DIR__ . '/config.php';
 
 if($_SERVER['REQUEST_METHOD'] !== 'POST') {
-   redirecionar('../public/index.php');
+   redirecionar('/public/index.php');
 }
 
 $email = trim($_POST['email']??'');

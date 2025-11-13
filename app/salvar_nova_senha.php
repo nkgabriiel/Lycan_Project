@@ -10,7 +10,7 @@ $confirmarNovaSenha = $_POST['confirmarSenha'] ?? '';
 $tokenURL = $_POST['token'] ?? '';
 
 if(empty($tokenURL)) {
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
 }
 
 if(empty($novaSenha) || $novaSenha !== $confirmarNovaSenha) {
