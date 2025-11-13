@@ -1,16 +1,18 @@
 <?php
 $perfil_exigido = 'admin';
-require_once __DIR__ . '/../app/verifica_sessao.php';
 require_once __DIR__ . '/../app/config.php';
+require_once __DIR__ . '/../app/verifica_sessao.php';
 ?>
 
 <!DOCTYPE html>
 <html lang = "pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/style.css">
     <title>Adicionar usuário</title>
 </head>
 <body>
+    <div class="tela-adicionar">
     <h2>Adicionar Novo usuário</h2>
     <form action="../app/salvar_usuario.php" method="POST">
         <label>Nome:</label><br>
@@ -29,8 +31,8 @@ require_once __DIR__ . '/../app/config.php';
         </select> <br><br>
 
         <button type="submit">Salvar usuário</button>
-        <a href="dashboard.php">Cancelar</a>
+        <a href="dashboard.php", class="btn-cancelar">Cancelar</a>
     </form>
+    </div>
 </body>
 </html>
-

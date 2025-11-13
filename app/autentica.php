@@ -2,7 +2,7 @@
 require_once __DIR__ . '/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
     exit;
 }
 
@@ -16,7 +16,7 @@ $senha = $_POST['senha'] ?? null;
 
 if (empty($email) || empty($senha)) {
     $_SESSION['flash_erro'] = 'Preencha e-mail e senha.';
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
 }
 
 try {
@@ -25,13 +25,13 @@ try {
     $user = $stmt->fetch();
 } catch (Exception $e) {
     $_SESSION['flash_erro'] = 'Erro interno. Tente novamente';
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
     exit;
 }
 
 if(!empty($_SESSION['falhas_login']) && $_SESSION['falhas_login'] >= $max_falhas) {
     $_SESSION['flash_erro'] = 'Muitas tentativas inválidas. Tente novamente mais tarde.';
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
     exit;
 }
 
@@ -39,7 +39,7 @@ if(!empty($_SESSION['falhas_login']) && $_SESSION['falhas_login'] >= $max_falhas
 if(!$user || !password_verify($senha, $user['senha_hash'])) {
     $_SESSION['falhas_login']++;
     $_SESSION['flash_erro'] = 'Credenciais inválidas.';
-    redirecionar('../public/index.php');
+    redirecionar('/public/index.php');
     exit;
 }
 
@@ -54,9 +54,9 @@ $_SESSION['falhas_login'] = 0;
 $_SESSION['flash_sucesso'] = 'Login realizado com sucesso.';
 
 if($user['perfil'] === 'admin') {
-    redirecionar('../public/dashboard.php');
+    redirecionar('/public/dashboard.php');
 } else {
-    redirecionar('../public/pagina_inicial.php');
+    redirecionar('/public/pagina_inicial.php');
 }
 
 exit;

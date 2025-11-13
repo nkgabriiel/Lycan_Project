@@ -13,6 +13,8 @@ define('DB_NAME','sistema_auth');
 define('DB_USER',   'root');
 define('DB_PASS', '');
 
+define('BASE_URL', 'http://localhost/lycanproject');
+
 function conectar_banco() {
     $dsn = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";charset=utf8mb4";
     try {
@@ -28,8 +30,12 @@ function conectar_banco() {
 
 
 
-   function redirecionar($url) {
-    header("Location: " . $url);
+function redirecionar($caminho_absoluto) {
+    // Garante que o caminho comece com /
+    if (substr($caminho_absoluto, 0, 1) !== '/') {
+        $caminho_absoluto = '/' . $caminho_absoluto;
+    }
+    header("Location: " . BASE_URL . $caminho_absoluto);
     exit;
 }
 
@@ -39,6 +45,11 @@ function conectar_banco() {
 
     function obterUserLogado() {
         return $_SESSION['usuario'] ?? null;
+    }
+
+    function generateToken(int $length = 32):string {
+        $bytes = random_bytes($length);
+        return bin2hex($bytes);
     }
 
     function validarForcaSenha($senha) {

@@ -1,9 +1,10 @@
 <?php
 $perfil_exigido = 'admin';
-require_once __DIR__ . '/../app/verifica_sessao.php';
-require_once __DIR__ . '/../app/config.php';
 
-$usuario_id = $_GET['ID'] ?? 0;
+require_once __DIR__ . '/../app/config.php';
+require_once __DIR__ . '/../app/verifica_sessao.php';
+
+$usuario_id = $_GET['id'] ?? 0;
 if(empty($usuario_id)) {
     redirecionar('../public/dashboard.php');
 }
@@ -22,12 +23,16 @@ if(!$usuario) {
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        <meta charset="UTF-8";
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../assets/style.css">
         <title>Editar Usuário</title>
     </head>
     <body>
+        <div class="tela-editar">
         <h2>Editar Usuário: <?= htmlspecialchars($usuario['nome'])?></h2>
         <form action="../app/atualizar_usuario.php" method="POST">
+
+            <input type="hidden" name="id" value="<?= $usuario['id'] ?>">
 
             <label>Nome:</label><br>
             <input type="text" name="nome" value="<?= htmlspecialchars($usuario['nome']) ?>" required> <br><br>
@@ -41,9 +46,9 @@ if(!$usuario) {
                 <option value="admin" <?= ($usuario['perfil'] == 'admin') ? 'selected' : ''  ?> >Admin</option>
             </select> <br><br>
 
-            <button type="submit">Atualziar Usuário</button>
-            <a href="dashboard.php">Cancelar</a>
+            <button type="submit">Atualizar Usuário</button>
+            <a href="dashboard.php", class="btn-cancelar">Cancelar</a>
+            </div>
         </form>
     </body>
 </html>
-
