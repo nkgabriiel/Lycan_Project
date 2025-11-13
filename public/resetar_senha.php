@@ -1,6 +1,11 @@
 <?php
 require_once __DIR__ . '/../app/config.php';
 
+$erro = $_SESSION['flash_erro'] ?? '';
+$sucesso = $_SESSION['sucesso'] ??'';
+unset($_SESSION['flash_erro'], $_SESSION['flash_sucesso']);
+
+
 $tokenURL = $_GET['token'] ?? '';
 
 if(empty($tokenURL)) {
@@ -31,6 +36,14 @@ if(!$reset_request) {
     <title>Trocar Senha</title>
 </head>
 <body>
+    
+    <?php if($erro): ?>
+        <div style="color:red;"><?= $erro ?></div>
+    <?php endif; ?>
+    <?php if($sucesso): ?>
+        <div style="color:green;"><?= $sucesso ?></div>
+    <?php endif; ?>
+
     <form action="../app/salvar_nova_senha.php" method="POST">
 
     <input type="hidden" name="token" value="<?=htmlspecialchars($tokenURL)?>">

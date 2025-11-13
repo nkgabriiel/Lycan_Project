@@ -30,8 +30,12 @@ function conectar_banco() {
 
 
 
-   function redirecionar($url) {
-    header("Location: " . $url);
+function redirecionar($caminho_absoluto) {
+    // Garante que o caminho comece com /
+    if (substr($caminho_absoluto, 0, 1) !== '/') {
+        $caminho_absoluto = '/' . $caminho_absoluto;
+    }
+    header("Location: " . BASE_URL . $caminho_absoluto);
     exit;
 }
 
