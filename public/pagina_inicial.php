@@ -19,6 +19,10 @@ $usuario_exib = htmlspecialchars($_SESSION['usuario_nome'] ?? 'Usuario', ENT_QUO
     <h1>Página Inicial</h1>
     <h2>Bem-vindo(a), <?= $usuario_exib ?>!</h2>
     
+<a href="meu_perfil.php", class="#">
+    <p>Meu perfil</p>
+</a>
+
     <p>Você está logado como um usuário comum.</p>
     
     <p><a href="../app/logout.php", class="btn-saircliente">Sair</a></p>
