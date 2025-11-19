@@ -33,6 +33,8 @@ if($_SESSION['perfil'] === 'admin') {
     <h1>Bem-vindo, <?= $usuario_exib ?></h1>
     <a href="../app/logout.php", class="btn-cancelar">Sair</a> <hr>
 
+    <a href="meu_perfil.php", class="#"><p>Meu perfil</p></a>
+
     <h2>Gerenciamento de usuários</h2>
 
     <a href="criar_usuario.php", class="btn-criarusuario">
